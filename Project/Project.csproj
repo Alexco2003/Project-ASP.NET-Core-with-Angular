@@ -41,15 +41,6 @@
   <ItemGroup>
     <Folder Include="Helpers\Seeders\" />
     <Folder Include="Models\DTOs\" />
-    <Folder Include="Repositories\GenericRepository\" />
-    <Folder Include="Repositories\MovieRepository\" />
-    <Folder Include="Repositories\UserMovie%28Review%29Repository\" />
-    <Folder Include="Repositories\SubscriptionRepository\" />
-    <Folder Include="Repositories\UserRepository\" />
-    <Folder Include="Services\MovieService\" />
-    <Folder Include="Services\UserMovie%28Review%29Service\" />
-    <Folder Include="Services\SubscriptionService\" />
-    <Folder Include="Services\UserService\" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
