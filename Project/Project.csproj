@@ -13,6 +13,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.13" />
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="7.0.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.13" />
@@ -21,6 +22,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="8.0.1" />
     <PackageReference Include="Microsoft.OpenApi" Version="1.6.12" />
     <PackageReference Include="MySql.Data" Version="8.3.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
@@ -34,6 +36,20 @@
     <Content Remove="$(SpaRoot)**" />
     <None Remove="$(SpaRoot)**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Helpers\Seeders\" />
+    <Folder Include="Models\DTOs\" />
+    <Folder Include="Repositories\GenericRepository\" />
+    <Folder Include="Repositories\MovieRepository\" />
+    <Folder Include="Repositories\UserMovie%28Review%29Repository\" />
+    <Folder Include="Repositories\SubscriptionRepository\" />
+    <Folder Include="Repositories\UserRepository\" />
+    <Folder Include="Services\MovieService\" />
+    <Folder Include="Services\UserMovie%28Review%29Service\" />
+    <Folder Include="Services\SubscriptionService\" />
+    <Folder Include="Services\UserService\" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
