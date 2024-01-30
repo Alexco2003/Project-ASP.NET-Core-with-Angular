@@ -31,18 +31,18 @@ namespace Project.Repositories.MovieRepository
             return await query.ToListAsync();
         }
 
-        public Task<List<Movie>> GetTopAllMoviesAsync()
+        public async Task<List<Movie>> GetTopAllMoviesAsync()
         {
             var query = _table.OrderByDescending(s => s.UserScore);
                               
-            return query.ToListAsync();
+            return await query.ToListAsync();
         }
-        public Task<List<System.Linq.IGrouping<string, Movie>>> GetMoviesByMPARatingAsync(Guid subscriptionId)
+        public async Task<List<System.Linq.IGrouping<string, Movie>>> GetMoviesByMPARatingAsync(Guid subscriptionId)
         {
             var query = _table.Where(s => s.SubscriptionId == subscriptionId)
                               .GroupBy(s => s.MPARating);
             
-            return query.ToListAsync();
+            return await query.ToListAsync();
         }
 
 
