@@ -40,9 +40,6 @@
 
   <ItemGroup>
     <Folder Include="Helpers\Seeders\" />
-    <Folder Include="Models\DTOs\MovieDTOs\" />
-    <Folder Include="Models\DTOs\SubscriptionDTOs\" />
-    <Folder Include="Models\DTOs\UserDTOs\" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
