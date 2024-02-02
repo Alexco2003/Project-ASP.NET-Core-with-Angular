@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
 using Project.Models;
+using Project.Models.DTOs.MovieDTOs;
 using Project.Repositories.GenericRepository;
 
 namespace Project.Repositories.MovieRepository
@@ -10,6 +11,7 @@ namespace Project.Repositories.MovieRepository
         Task<List<Movie>> GetMoviesByDurationAsync(Guid subscriptionId);
         Task<List<Movie>> GetTopAllMoviesAsync();
         Task<List<System.Linq.IGrouping<string, Movie>>> GetMoviesByMPARatingAsync(Guid subscriptionId);
+
 
 
     }
