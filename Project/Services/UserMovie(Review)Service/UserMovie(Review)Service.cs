@@ -66,7 +66,7 @@ namespace Project.Services.UserMovie_Review_Service
                 throw new Exception("Review not found!");
             }
 
-            existingReview.UserScore = (int)review.UserScore;
+            existingReview.UserScore = (float)review.UserScore;
 
             _reviewRepository.Update(_mapper.Map<UserMovie_Review_>(existingReview));
             await _reviewRepository.SaveAsync();

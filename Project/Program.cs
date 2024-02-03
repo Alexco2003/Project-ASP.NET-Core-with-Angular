@@ -2,23 +2,46 @@ using Google.Protobuf.WellKnownTypes;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Project.Data;
+using Project.Helpers.Extensions;
+using Project.Helpers.Seeders;
 using Project.Models;
 using System.Runtime.ConstrainedExecution;
 using System.Text.RegularExpressions;
+
+void SeedData(IHost app)
+{
+    var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+
+    using (var scope = scopedFactory.CreateScope())
+    {
+        
+        var userService = scope.ServiceProvider.GetService<UserSubscriptionMoviesSeeder>();
+        userService.SeedInitialUser();
+
+        var roleService = scope.ServiceProvider.GetService<RolesSeeder>();
+        roleService.SeedInitialRoles();
+
+        var userRolesService = scope.ServiceProvider.GetService<UserRoleSeeder>();
+        userRolesService.SeedInitialUserRoles();
+
+        var reviewService = scope.ServiceProvider.GetService<UserMovie_Review_Seeder>();
+        reviewService.SeedInitialUserMovie_Reviews_();
+    }
+}
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 builder.Services.AddEndpointsApiExplorer();
 
-/*builder.Services.AddServices();
+builder.Services.AddServices();
 builder.Services.AddRepositories();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddSeeders();
-*/
 
 
 builder.Services.AddDbContext<ProjectContext>(
@@ -43,6 +66,8 @@ builder.Services.Configure<IdentityOptions>(opt =>
 
 var app = builder.Build();
 
+SeedData(app);
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -62,7 +87,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseAuthorization();
 app.UseRouting();
+app.MapControllers();
 
 
 app.MapControllerRoute(

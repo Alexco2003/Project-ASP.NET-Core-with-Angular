@@ -7,7 +7,7 @@ namespace Project.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public int Duration { get; set; }
-        public int UserScore { get; set; }
+        public float UserScore { get; set; }
         public string MPARating { get; set; }
 
 

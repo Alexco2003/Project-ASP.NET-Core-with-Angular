@@ -5,6 +5,6 @@
         public Guid UserId { get; set; }
         public Guid MovieId { get; set; }
         public string Review { get; set; }
-        public int UserScore { get; set; }
+        public float UserScore { get; set; }
     }
 }

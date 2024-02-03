@@ -4,7 +4,7 @@ namespace Project.Models
 {
     public class UserMovie_Review_ : BaseEntity
     {
-        public int UserScore { get; set; }
+        public float UserScore { get; set; }
         public string Review { get; set; }
         
         /// Relations

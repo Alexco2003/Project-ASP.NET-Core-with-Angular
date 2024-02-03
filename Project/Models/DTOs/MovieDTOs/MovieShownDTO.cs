@@ -6,7 +6,7 @@
 
         public string Description { get; set; }
 
-        public int UserScore { get; set; }
+        public float UserScore { get; set; }
 
       
     }

@@ -58,7 +58,7 @@ namespace Project.Services.MovieService
 
             existingMovie.LastModifiedTime = DateTime.Now;
            
-            existingMovie.UserScore = (int)movie.UserScore;
+            existingMovie.UserScore = (float)movie.UserScore;
 
             _movieRepository.Update(_mapper.Map<Movie>(existingMovie));
             await _movieRepository.SaveAsync();
