@@ -8,7 +8,7 @@
 - [x] Sa se foloseasca repository pattern + Service 
 
 ### Puncte Extra:
-- [ ] Unit of work (1 pct)
+- [x] Unit of work (1 pct)
 - [ ] Specification Pattern (1 pct)
 - [ ] Chat cu SignalR (1 pct)
 - [x] Autentificare cu Identity (1 pct)
