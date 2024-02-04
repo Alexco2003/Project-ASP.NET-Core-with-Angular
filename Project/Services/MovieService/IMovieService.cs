@@ -12,6 +12,7 @@ namespace Project.Services.MovieService
         Task CreateMovie(MovieCreateDTO movie);
         Task UpdateMovie(MovieUpdateDTO movie);
         Task Delete(Guid id);
+        Task<Dictionary<string, string>> GetMoviesByMPARatingAsync2(Guid subscriptionId);
 
     }
 }

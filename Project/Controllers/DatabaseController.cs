@@ -26,19 +26,19 @@ namespace Project.Controllers
         }
 
         [HttpGet("Movie")]
-        public async Task<IActionResult> GetReacts()
+        public async Task<IActionResult> GetMovies()
         {
             return Ok(await _ProjectContext.Movies.ToListAsync());
         }
 
         [HttpGet("Subscription")]
-        public async Task<IActionResult> GetPosts()
+        public async Task<IActionResult> GetSubscriptions()
         {
             return Ok(await _ProjectContext.Subscriptions.ToListAsync());
         }
 
         [HttpGet("Review")]
-        public async Task<IActionResult> GetComments()
+        public async Task<IActionResult> GetReviews()
         {
             return Ok(await _ProjectContext.Reviews.ToListAsync());
         }

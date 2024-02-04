@@ -1,4 +1,5 @@
 using Google.Protobuf.WellKnownTypes;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Project.Data;
@@ -67,6 +68,7 @@ builder.Services.Configure<IdentityOptions>(opt =>
 
 var app = builder.Build();
 
+
 SeedData(app);
 
 // Configure the HTTP request pipeline.
@@ -88,10 +90,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseAuthorization();
-app.UseRouting();
-app.MapControllers();
 
+app.UseRouting();
+app.UseAuthorization();
+app.UseAuthentication();
+app.MapControllers();
 
 app.MapControllerRoute(
     name: "default",

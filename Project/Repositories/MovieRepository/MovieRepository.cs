@@ -13,8 +13,6 @@ namespace Project.Repositories.MovieRepository
         public async Task<List<Movie>> GetTop3MoviesAsync(Guid subscriptionId)
         {
             var query = _table.Where(s => s.SubscriptionId == subscriptionId)
-                              .GroupBy(s => s.Id)
-                              .SelectMany(s => s)
                               .OrderByDescending(s => s.UserScore)
                               .Take(3); 
 
@@ -24,8 +22,6 @@ namespace Project.Repositories.MovieRepository
         public async Task<List<Movie>> GetMoviesByDurationAsync(Guid subscriptionId)
         {
             var query = _table.Where(s => s.SubscriptionId == subscriptionId)
-                              .GroupBy(s => s.Id)
-                              .SelectMany(s => s)
                               .OrderBy(s => s.Duration);
 
             return await query.ToListAsync();
@@ -44,6 +40,24 @@ namespace Project.Repositories.MovieRepository
             
             return await query.ToListAsync();
         }
+
+        public async Task<Dictionary<string, string>> GetMoviesByMPARatingAsync2(Guid subscriptionId)
+        {
+            var query = _table.Where(s => s.SubscriptionId == subscriptionId)
+                              .GroupBy(s => s.MPARating)
+                              .Select(g => new { g.Key, Count = g.Count() });
+
+            var result = new Dictionary<string, string>();
+
+            foreach (var item in query)
+            {
+                result.Add(item.Key, item.Count.ToString());
+            }
+
+            return result;
+            
+        }
+
 
 
     }

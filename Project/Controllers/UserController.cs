@@ -103,6 +103,7 @@ namespace Project.Controllers
                 });
             }
         }
+
         [Authorize]
         [HttpPost("LogOut")]
         public async Task<IActionResult> Logout()

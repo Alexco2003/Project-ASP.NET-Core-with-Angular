@@ -11,8 +11,7 @@ namespace Project.Repositories.MovieRepository
         Task<List<Movie>> GetMoviesByDurationAsync(Guid subscriptionId);
         Task<List<Movie>> GetTopAllMoviesAsync();
         Task<List<System.Linq.IGrouping<string, Movie>>> GetMoviesByMPARatingAsync(Guid subscriptionId);
-
-
+        Task<Dictionary<string, string>> GetMoviesByMPARatingAsync2(Guid subscriptionId);
 
     }
 }

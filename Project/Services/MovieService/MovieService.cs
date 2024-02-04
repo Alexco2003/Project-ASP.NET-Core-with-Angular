@@ -84,5 +84,11 @@ namespace Project.Services.MovieService
             var query = _movieRepository.GetMoviesByMPARatingAsync(subscriptionId);
             return _mapper.Map<List<System.Linq.IGrouping<string, MovieShownDTO>>>(await query);
         }
+
+        public async Task<Dictionary<string, string>> GetMoviesByMPARatingAsync2(Guid subscriptionId)
+        {
+            var query = _movieRepository.GetMoviesByMPARatingAsync2(subscriptionId);
+            return await query;
+        }
     }
 }
