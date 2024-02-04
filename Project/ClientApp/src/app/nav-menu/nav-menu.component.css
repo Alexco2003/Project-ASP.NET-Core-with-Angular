@@ -2,8 +2,18 @@ a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
+  background-color: #333;
+  color: #fff;
 }
 
+a.nav-link
+{
+  color: #fff;
+}
+
+.container {
+  background-color: #333;
+}
 html {
   font-size: 14px;
 }
