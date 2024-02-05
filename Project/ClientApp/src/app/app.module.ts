@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -14,6 +15,7 @@ import { LogInComponentComponent } from './log-in-component/log-in-component.com
 import { ChatComponent } from './chat/chat.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
+import AuthGuard from './auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -39,10 +41,11 @@ import { RegisterComponent } from './register/register.component';
       { path: 'log-in-component', component: LogInComponentComponent },
       { path: 'chat', component: ChatComponent },
       { path: 'logout', component: LogoutComponent },
-      { path: 'register', component: RegisterComponent }
+      { path: 'register', component: RegisterComponent },
+      { path: 'movie-component', component: MovieComponentComponent, canActivate: [AuthGuard]},
     ])
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
