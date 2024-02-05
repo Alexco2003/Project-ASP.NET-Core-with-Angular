@@ -9,6 +9,7 @@ using Project.Helpers.Extensions;
 using Project.Helpers.Seeders;
 using Project.Hubs;
 using Project.Models;
+using Project.Services.EmailService;
 using System.Runtime.ConstrainedExecution;
 using System.Text.RegularExpressions;
 
@@ -57,6 +58,8 @@ builder.Services.AddServices();
 builder.Services.AddRepositories();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddSeeders();
+builder.Services.AddScoped<IEmailService, EmailService>();
+
 
 
 builder.Services.AddDbContext<ProjectContext>(
