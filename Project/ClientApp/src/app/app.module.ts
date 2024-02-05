@@ -12,6 +12,8 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { MovieComponentComponent } from './movie-component/movie-component.component';
 import { LogInComponentComponent } from './log-in-component/log-in-component.component';
 import { ChatComponent } from './chat/chat.component';
+import { LogoutComponent } from './logout/logout.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ChatComponent } from './chat/chat.component';
     FetchDataComponent,
     MovieComponentComponent,
     LogInComponentComponent,
-    ChatComponent
+    ChatComponent,
+    LogoutComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -34,6 +38,8 @@ import { ChatComponent } from './chat/chat.component';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'log-in-component', component: LogInComponentComponent },
       { path: 'chat', component: ChatComponent },
+      { path: 'logout', component: LogoutComponent },
+      { path: 'register', component: RegisterComponent }
     ])
   ],
   providers: [],

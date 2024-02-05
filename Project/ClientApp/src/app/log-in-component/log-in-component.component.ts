@@ -22,13 +22,13 @@ export class LogInComponentComponent {
         this.http.post<{ token: string }>('/api/User/Login', { email: this.email, username: this.username, password: this.password })
             .subscribe(
                 res => {
-                    // Store the token in the local storage
+
                     localStorage.setItem('token', res.token);
-                    // Redirect to the home page
+
                     this.router.navigate(['/']);
                 },
                 err => {
-                    // Display the error message
+
                     alert(err.error.message);
                 }
             );

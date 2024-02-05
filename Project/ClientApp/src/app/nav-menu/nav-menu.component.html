@@ -32,10 +32,16 @@
             <a class="nav-link" [routerLink]="['/fetch-data']">Fetch data</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link" [routerLink]="['/register']">Register</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link" [routerLink]="['/log-in-component']">LogIn</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link" [routerLink]="['/chat']">Chat Room</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="isLoggedIn()">
+            <a class="nav-link" [routerLink]="['/logout']">LogOut</a>
           </li>
 
         </ul>

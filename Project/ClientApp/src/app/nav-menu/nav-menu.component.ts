@@ -15,4 +15,11 @@ export class NavMenuComponent {
   toggle() {
     this.isExpanded = !this.isExpanded;
   }
+
+  isLoggedIn() {
+    return localStorage.getItem('token') !== null;
 }
+
+}
+
+
