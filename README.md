@@ -12,7 +12,7 @@
 - [ ] Specification Pattern (1 pct)
 - [x] Chat cu SignalR (1 pct)
 - [x] Autentificare cu Identity (1 pct)
-- [ ] SMTP cu Sendgrid, SendinBlue etc (1 pct)
+- [x] SMTP cu Sendgrid, SendinBlue etc (1 pct)
 - [ ] Upload fisiere pe S3 (AWS) sau Storage Account (Azure) (1pct)
 - [ ] Auth cu refresh token (1 pct)
 - [ ] Arhitectura microservicii cu mediator pattern (3 pct)
