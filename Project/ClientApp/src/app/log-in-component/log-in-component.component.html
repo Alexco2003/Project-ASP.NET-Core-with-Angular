@@ -1,1 +1,17 @@
-<p>log-in-component works!</p>
+
+<form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="email" name="email" required>
+</div>
+  <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" [(ngModel)]="username" name="username" required>
+  </div>
+
+  <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" [(ngModel)]="password" name="password" required>
+  </div>
+  <button type="submit">Submit</button>
+</form>
