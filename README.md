@@ -26,10 +26,10 @@
 ## Frontend (2 pct)
 
 - [x] Cel putin 3 componente. Existenta rutelor(simple + parametru).
-- [ ] Cel putin 3 servicii conectate la serverul din .Net . Afisarea de date din servicii in componente.
+- [x] Cel putin 3 servicii conectate la serverul din .Net . Afisarea de date din servicii in componente.
 - [ ] Cel putin 1 directiva. (pe langa cea facuta la laborator)
 - [ ] Cel putin 1 pipe
-- [ ] Register + Login (cu reactive forms) + Implementare Guard
+- [x] Register + Login (cu reactive forms) + Implementare Guard
 
 ### Puncte Extra:
 - [ ] Folosire 3 metode care nu au fost folosite la laborator din rxjs (1 pct) (https://rxjs.dev/api)
