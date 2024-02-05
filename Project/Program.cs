@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Project.Data;
 using Project.Helpers.Extensions;
 using Project.Helpers.Seeders;
+using Project.Hubs;
 using Project.Models;
 using System.Runtime.ConstrainedExecution;
 using System.Text.RegularExpressions;
@@ -41,6 +42,16 @@ builder.Services.AddControllers();
 builder.Services.AddControllersWithViews();
 builder.Services.AddSwaggerGen();
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddSignalR();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", builder =>
+        builder.WithOrigins("https://localhost:4200", "https://localhost:44460/chat", "https://localhost:44460", "https://localhost:7048/chat", "https://localhost:7048", "http://localhost:5070")
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials());
+});
 
 builder.Services.AddServices();
 builder.Services.AddRepositories();
@@ -93,6 +104,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseCors("CorsPolicy");
+
 app.UseRouting();
 app.UseAuthorization();
 app.UseAuthentication();
@@ -108,6 +121,8 @@ FirebaseApp.Create(new AppOptions()
 {
     Credential = GoogleCredential.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "fir-alexco2003-firebase-adminsdk-im981-f6385fbf46.json")),
 });
+
+app.MapHub<ChatHub>("/chat");
 
 app.Run();
 
